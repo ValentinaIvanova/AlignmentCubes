@@ -1,0 +1,306 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+	<rect x="-15.0" y="-15.5" width="6.0" height="7.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="-17.0" y="-18.5" width="13.0" height="10.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="-14.333333" y="-11.833333" width="-0.53333336" height="-0.53333336"/>
+	<rect x="-11.333333" y="-10.833333" width="-0.53333336" height="-0.53333336"/>
+	<rect x="-11.0" y="-10.5" width="0.8" height="0.8"/>
+	<rect x="-14.333333" y="-13.833333" width="-0.53333336" height="-0.53333336"/>
+	<rect x="-13.986733" y="-12.486733" width="0.77346665" height="0.77346665"/>
+	<text x="-8.5" y="-16.5" font-size=".9">AML-2013</text>
+	<text x="-14.5" y="-16.0" transform="rotate(-90 -14.5,-16.0)" font-size=".6">Document</text>
+	<text x="-13.5" y="-16.0" transform="rotate(-90 -13.5,-16.0)" font-size=".6">Event</text>
+	<text x="-12.5" y="-16.0" transform="rotate(-90 -12.5,-16.0)" font-size=".6">Location</text>
+	<text x="-11.5" y="-16.0" transform="rotate(-90 -11.5,-16.0)" font-size=".6">Organisation</text>
+	<text x="-10.5" y="-16.0" transform="rotate(-90 -10.5,-16.0)" font-size=".6">Person</text>
+	<text x="-9.5" y="-16.0" transform="rotate(-90 -9.5,-16.0)" font-size=".6">Research_Topic</text>
+	<text x="-8.5" y="-15.0" font-size=".6">City</text>
+	<text x="-8.5" y="-14.0" font-size=".6">Contribution</text>
+	<text x="-8.5" y="-13.0" font-size=".6">Country</text>
+	<text x="-8.5" y="-12.0" font-size=".6">Event</text>
+	<text x="-8.5" y="-11.0" font-size=".6">Organization</text>
+	<text x="-8.5" y="-10.0" font-size=".6">Person</text>
+	<text x="-8.5" y="-9.0" font-size=".6">Topic</text>
+	<circle cx="-16.0" cy="15.0" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<circle cx="-16.0" cy="9.5" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<rect x="1.1999998" y="-15.5" width="6.0" height="7.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="-0.8000002" y="-18.5" width="13.0" height="10.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="5.2132664" y="-10.486733" width="0.77346665" height="0.77346665"/>
+	<rect x="4.4112663" y="-11.2887335" width="0.37746665" height="0.37746665"/>
+	<rect x="2.2132664" y="-12.486733" width="0.77346665" height="0.77346665"/>
+	<rect x="1.8666666" y="-13.833333" width="-0.53333336" height="-0.53333336"/>
+	<rect x="1.8666666" y="-11.833333" width="-0.53333336" height="-0.53333336"/>
+	<text x="7.7" y="-16.5" font-size=".9">AML-2014</text>
+	<text x="1.6999998" y="-16.0" transform="rotate(-90 1.6999998,-16.0)" font-size=".6">Document</text>
+	<text x="2.6999998" y="-16.0" transform="rotate(-90 2.6999998,-16.0)" font-size=".6">Event</text>
+	<text x="3.6999998" y="-16.0" transform="rotate(-90 3.6999998,-16.0)" font-size=".6">Location</text>
+	<text x="4.7" y="-16.0" transform="rotate(-90 4.7,-16.0)" font-size=".6">Organisation</text>
+	<text x="5.7" y="-16.0" transform="rotate(-90 5.7,-16.0)" font-size=".6">Person</text>
+	<text x="6.7" y="-16.0" transform="rotate(-90 6.7,-16.0)" font-size=".6">Research_Topic</text>
+	<text x="7.7" y="-15.0" font-size=".6">City</text>
+	<text x="7.7" y="-14.0" font-size=".6">Contribution</text>
+	<text x="7.7" y="-13.0" font-size=".6">Country</text>
+	<text x="7.7" y="-12.0" font-size=".6">Event</text>
+	<text x="7.7" y="-11.0" font-size=".6">Organization</text>
+	<text x="7.7" y="-10.0" font-size=".6">Person</text>
+	<text x="7.7" y="-9.0" font-size=".6">Topic</text>
+	<circle cx="0.19999981" cy="15.0" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<circle cx="0.19999981" cy="9.5" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<rect x="17.4" y="-15.5" width="6.0" height="7.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="15.4" y="-18.5" width="13.0" height="10.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="20.526667" y="-11.373333" width="0.5466667" height="0.5466667"/>
+	<rect x="18.539999" y="-12.36" width="0.52000004" height="0.52000004"/>
+	<rect x="18.066666" y="-13.833333" width="-0.53333336" height="-0.53333336"/>
+	<rect x="21.566666" y="-10.333333" width="0.46666667" height="0.46666667"/>
+	<text x="23.9" y="-16.5" font-size=".9">LogMap-2012</text>
+	<text x="17.9" y="-16.0" transform="rotate(-90 17.9,-16.0)" font-size=".6">Document</text>
+	<text x="18.9" y="-16.0" transform="rotate(-90 18.9,-16.0)" font-size=".6">Event</text>
+	<text x="19.9" y="-16.0" transform="rotate(-90 19.9,-16.0)" font-size=".6">Location</text>
+	<text x="20.9" y="-16.0" transform="rotate(-90 20.9,-16.0)" font-size=".6">Organisation</text>
+	<text x="21.9" y="-16.0" transform="rotate(-90 21.9,-16.0)" font-size=".6">Person</text>
+	<text x="22.9" y="-16.0" transform="rotate(-90 22.9,-16.0)" font-size=".6">Research_Topic</text>
+	<text x="23.9" y="-15.0" font-size=".6">City</text>
+	<text x="23.9" y="-14.0" font-size=".6">Contribution</text>
+	<text x="23.9" y="-13.0" font-size=".6">Country</text>
+	<text x="23.9" y="-12.0" font-size=".6">Event</text>
+	<text x="23.9" y="-11.0" font-size=".6">Organization</text>
+	<text x="23.9" y="-10.0" font-size=".6">Person</text>
+	<text x="23.9" y="-9.0" font-size=".6">Topic</text>
+	<circle cx="16.4" cy="15.0" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<circle cx="16.4" cy="9.5" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<rect x="33.6" y="-15.5" width="6.0" height="7.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="31.599998" y="-18.5" width="13.0" height="10.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="34.266666" y="-13.833333" width="-0.53333336" height="-0.53333336"/>
+	<rect x="34.266666" y="-11.833333" width="-0.53333336" height="-0.53333336"/>
+	<rect x="37.613266" y="-10.486733" width="0.77346665" height="0.77346665"/>
+	<rect x="36.811264" y="-11.2887335" width="0.37746665" height="0.37746665"/>
+	<rect x="34.613266" y="-12.486733" width="0.77346665" height="0.77346665"/>
+	<text x="40.1" y="-16.5" font-size=".9">AML-2015</text>
+	<text x="34.1" y="-16.0" transform="rotate(-90 34.1,-16.0)" font-size=".6">Document</text>
+	<text x="35.1" y="-16.0" transform="rotate(-90 35.1,-16.0)" font-size=".6">Event</text>
+	<text x="36.1" y="-16.0" transform="rotate(-90 36.1,-16.0)" font-size=".6">Location</text>
+	<text x="37.1" y="-16.0" transform="rotate(-90 37.1,-16.0)" font-size=".6">Organisation</text>
+	<text x="38.1" y="-16.0" transform="rotate(-90 38.1,-16.0)" font-size=".6">Person</text>
+	<text x="39.1" y="-16.0" transform="rotate(-90 39.1,-16.0)" font-size=".6">Research_Topic</text>
+	<text x="40.1" y="-15.0" font-size=".6">City</text>
+	<text x="40.1" y="-14.0" font-size=".6">Contribution</text>
+	<text x="40.1" y="-13.0" font-size=".6">Country</text>
+	<text x="40.1" y="-12.0" font-size=".6">Event</text>
+	<text x="40.1" y="-11.0" font-size=".6">Organization</text>
+	<text x="40.1" y="-10.0" font-size=".6">Person</text>
+	<text x="40.1" y="-9.0" font-size=".6">Topic</text>
+	<circle cx="32.6" cy="15.0" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<circle cx="32.6" cy="9.5" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<rect x="49.8" y="-15.5" width="6.0" height="7.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="47.8" y="-18.5" width="13.0" height="10.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="51.466667" y="-11.833333" width="-0.53333336" height="-0.53333336"/>
+	<rect x="53.038" y="-11.262" width="0.324" height="0.324"/>
+	<rect x="50.466667" y="-13.833333" width="-0.53333336" height="-0.53333336"/>
+	<rect x="54.047333" y="-10.252666" width="0.30533335" height="0.30533335"/>
+	<text x="56.3" y="-16.5" font-size=".9">LogMap-2011</text>
+	<text x="50.3" y="-16.0" transform="rotate(-90 50.3,-16.0)" font-size=".6">Document</text>
+	<text x="51.3" y="-16.0" transform="rotate(-90 51.3,-16.0)" font-size=".6">Event</text>
+	<text x="52.3" y="-16.0" transform="rotate(-90 52.3,-16.0)" font-size=".6">Location</text>
+	<text x="53.3" y="-16.0" transform="rotate(-90 53.3,-16.0)" font-size=".6">Organisation</text>
+	<text x="54.3" y="-16.0" transform="rotate(-90 54.3,-16.0)" font-size=".6">Person</text>
+	<text x="55.3" y="-16.0" transform="rotate(-90 55.3,-16.0)" font-size=".6">Research_Topic</text>
+	<text x="56.3" y="-15.0" font-size=".6">City</text>
+	<text x="56.3" y="-14.0" font-size=".6">Contribution</text>
+	<text x="56.3" y="-13.0" font-size=".6">Country</text>
+	<text x="56.3" y="-12.0" font-size=".6">Event</text>
+	<text x="56.3" y="-11.0" font-size=".6">Organization</text>
+	<text x="56.3" y="-10.0" font-size=".6">Person</text>
+	<text x="56.3" y="-9.0" font-size=".6">Topic</text>
+	<circle cx="48.8" cy="15.0" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<circle cx="48.8" cy="9.5" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<rect x="-15.0" y="3.0" width="6.0" height="7.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="-17.0" y="-0.0" width="13.0" height="10.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="-11.0" y="8.0" width="0.8" height="0.8"/>
+	<rect x="-14.0" y="6.0" width="0.8" height="0.8"/>
+	<rect x="-11.333333" y="7.6666665" width="-0.53333336" height="-0.53333336"/>
+	<rect x="-14.333333" y="4.6666665" width="-0.53333336" height="-0.53333336"/>
+	<text x="-8.5" y="2.0" font-size=".9">LogMapLite-2014</text>
+	<text x="-14.5" y="2.5" transform="rotate(-90 -14.5,2.5)" font-size=".6">Document</text>
+	<text x="-13.5" y="2.5" transform="rotate(-90 -13.5,2.5)" font-size=".6">Event</text>
+	<text x="-12.5" y="2.5" transform="rotate(-90 -12.5,2.5)" font-size=".6">Location</text>
+	<text x="-11.5" y="2.5" transform="rotate(-90 -11.5,2.5)" font-size=".6">Organisation</text>
+	<text x="-10.5" y="2.5" transform="rotate(-90 -10.5,2.5)" font-size=".6">Person</text>
+	<text x="-9.5" y="2.5" transform="rotate(-90 -9.5,2.5)" font-size=".6">Research_Topic</text>
+	<text x="-8.5" y="3.5" font-size=".6">City</text>
+	<text x="-8.5" y="4.5" font-size=".6">Contribution</text>
+	<text x="-8.5" y="5.5" font-size=".6">Country</text>
+	<text x="-8.5" y="6.5" font-size=".6">Event</text>
+	<text x="-8.5" y="7.5" font-size=".6">Organization</text>
+	<text x="-8.5" y="8.5" font-size=".6">Person</text>
+	<text x="-8.5" y="9.5" font-size=".6">Topic</text>
+	<circle cx="-16.0" cy="-3.5" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<circle cx="-16.0" cy="-9.0" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<rect x="1.1999998" y="3.0" width="6.0" height="7.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="-0.8000002" y="-0.0" width="13.0" height="10.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="5.2999997" y="8.1" width="0.6000001" height="0.6000001"/>
+	<rect x="2.3199997" y="6.12" width="0.56" height="0.56"/>
+	<rect x="4.3399997" y="7.14" width="0.52000004" height="0.52000004"/>
+	<rect x="1.8666666" y="4.6666665" width="-0.53333336" height="-0.53333336"/>
+	<text x="7.7" y="2.0" font-size=".9">LogMap-2015</text>
+	<text x="1.6999998" y="2.5" transform="rotate(-90 1.6999998,2.5)" font-size=".6">Document</text>
+	<text x="2.6999998" y="2.5" transform="rotate(-90 2.6999998,2.5)" font-size=".6">Event</text>
+	<text x="3.6999998" y="2.5" transform="rotate(-90 3.6999998,2.5)" font-size=".6">Location</text>
+	<text x="4.7" y="2.5" transform="rotate(-90 4.7,2.5)" font-size=".6">Organisation</text>
+	<text x="5.7" y="2.5" transform="rotate(-90 5.7,2.5)" font-size=".6">Person</text>
+	<text x="6.7" y="2.5" transform="rotate(-90 6.7,2.5)" font-size=".6">Research_Topic</text>
+	<text x="7.7" y="3.5" font-size=".6">City</text>
+	<text x="7.7" y="4.5" font-size=".6">Contribution</text>
+	<text x="7.7" y="5.5" font-size=".6">Country</text>
+	<text x="7.7" y="6.5" font-size=".6">Event</text>
+	<text x="7.7" y="7.5" font-size=".6">Organization</text>
+	<text x="7.7" y="8.5" font-size=".6">Person</text>
+	<text x="7.7" y="9.5" font-size=".6">Topic</text>
+	<circle cx="0.19999981" cy="-3.5" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<circle cx="0.19999981" cy="-9.0" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<rect x="17.4" y="3.0" width="6.0" height="7.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="15.4" y="-0.0" width="13.0" height="10.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="20.486666" y="7.0866666" width="0.6266667" height="0.6266667"/>
+	<rect x="21.526667" y="8.126667" width="0.5466667" height="0.5466667"/>
+	<rect x="18.52" y="6.12" width="0.56" height="0.56"/>
+	<rect x="18.066666" y="4.6666665" width="-0.53333336" height="-0.53333336"/>
+	<text x="23.9" y="2.0" font-size=".9">LogMap-2013</text>
+	<text x="17.9" y="2.5" transform="rotate(-90 17.9,2.5)" font-size=".6">Document</text>
+	<text x="18.9" y="2.5" transform="rotate(-90 18.9,2.5)" font-size=".6">Event</text>
+	<text x="19.9" y="2.5" transform="rotate(-90 19.9,2.5)" font-size=".6">Location</text>
+	<text x="20.9" y="2.5" transform="rotate(-90 20.9,2.5)" font-size=".6">Organisation</text>
+	<text x="21.9" y="2.5" transform="rotate(-90 21.9,2.5)" font-size=".6">Person</text>
+	<text x="22.9" y="2.5" transform="rotate(-90 22.9,2.5)" font-size=".6">Research_Topic</text>
+	<text x="23.9" y="3.5" font-size=".6">City</text>
+	<text x="23.9" y="4.5" font-size=".6">Contribution</text>
+	<text x="23.9" y="5.5" font-size=".6">Country</text>
+	<text x="23.9" y="6.5" font-size=".6">Event</text>
+	<text x="23.9" y="7.5" font-size=".6">Organization</text>
+	<text x="23.9" y="8.5" font-size=".6">Person</text>
+	<text x="23.9" y="9.5" font-size=".6">Topic</text>
+	<circle cx="16.4" cy="-3.5" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<circle cx="16.4" cy="-9.0" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<rect x="33.6" y="3.0" width="6.0" height="7.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="31.599998" y="-0.0" width="13.0" height="10.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="36.686665" y="7.0866666" width="0.6266667" height="0.6266667"/>
+	<rect x="34.719997" y="6.12" width="0.56" height="0.56"/>
+	<rect x="37.726665" y="8.126667" width="0.5466667" height="0.5466667"/>
+	<rect x="34.266666" y="4.6666665" width="-0.53333336" height="-0.53333336"/>
+	<text x="40.1" y="2.0" font-size=".9">LogMapC-2014</text>
+	<text x="34.1" y="2.5" transform="rotate(-90 34.1,2.5)" font-size=".6">Document</text>
+	<text x="35.1" y="2.5" transform="rotate(-90 35.1,2.5)" font-size=".6">Event</text>
+	<text x="36.1" y="2.5" transform="rotate(-90 36.1,2.5)" font-size=".6">Location</text>
+	<text x="37.1" y="2.5" transform="rotate(-90 37.1,2.5)" font-size=".6">Organisation</text>
+	<text x="38.1" y="2.5" transform="rotate(-90 38.1,2.5)" font-size=".6">Person</text>
+	<text x="39.1" y="2.5" transform="rotate(-90 39.1,2.5)" font-size=".6">Research_Topic</text>
+	<text x="40.1" y="3.5" font-size=".6">City</text>
+	<text x="40.1" y="4.5" font-size=".6">Contribution</text>
+	<text x="40.1" y="5.5" font-size=".6">Country</text>
+	<text x="40.1" y="6.5" font-size=".6">Event</text>
+	<text x="40.1" y="7.5" font-size=".6">Organization</text>
+	<text x="40.1" y="8.5" font-size=".6">Person</text>
+	<text x="40.1" y="9.5" font-size=".6">Topic</text>
+	<circle cx="32.6" cy="-3.5" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<circle cx="32.6" cy="-9.0" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<rect x="49.8" y="3.0" width="6.0" height="7.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="47.8" y="-0.0" width="13.0" height="10.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="53.466667" y="7.6666665" width="-0.53333336" height="-0.53333336"/>
+	<rect x="50.8" y="6.0" width="0.8" height="0.8"/>
+	<rect x="53.8" y="8.0" width="0.8" height="0.8"/>
+	<rect x="50.466667" y="4.6666665" width="-0.53333336" height="-0.53333336"/>
+	<text x="56.3" y="2.0" font-size=".9">LogMapLite-2015</text>
+	<text x="50.3" y="2.5" transform="rotate(-90 50.3,2.5)" font-size=".6">Document</text>
+	<text x="51.3" y="2.5" transform="rotate(-90 51.3,2.5)" font-size=".6">Event</text>
+	<text x="52.3" y="2.5" transform="rotate(-90 52.3,2.5)" font-size=".6">Location</text>
+	<text x="53.3" y="2.5" transform="rotate(-90 53.3,2.5)" font-size=".6">Organisation</text>
+	<text x="54.3" y="2.5" transform="rotate(-90 54.3,2.5)" font-size=".6">Person</text>
+	<text x="55.3" y="2.5" transform="rotate(-90 55.3,2.5)" font-size=".6">Research_Topic</text>
+	<text x="56.3" y="3.5" font-size=".6">City</text>
+	<text x="56.3" y="4.5" font-size=".6">Contribution</text>
+	<text x="56.3" y="5.5" font-size=".6">Country</text>
+	<text x="56.3" y="6.5" font-size=".6">Event</text>
+	<text x="56.3" y="7.5" font-size=".6">Organization</text>
+	<text x="56.3" y="8.5" font-size=".6">Person</text>
+	<text x="56.3" y="9.5" font-size=".6">Topic</text>
+	<circle cx="48.8" cy="-3.5" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<circle cx="48.8" cy="-9.0" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<rect x="-15.0" y="21.5" width="6.0" height="7.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="-17.0" y="18.5" width="13.0" height="10.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="-14.333333" y="23.166666" width="-0.53333336" height="-0.53333336"/>
+	<rect x="-10.873333" y="26.626667" width="0.5466667" height="0.5466667"/>
+	<rect x="-11.913333" y="25.586666" width="0.6266667" height="0.6266667"/>
+	<rect x="-13.88" y="24.62" width="0.56" height="0.56"/>
+	<text x="-8.5" y="20.5" font-size=".9">LogMap-2014</text>
+	<text x="-14.5" y="21.0" transform="rotate(-90 -14.5,21.0)" font-size=".6">Document</text>
+	<text x="-13.5" y="21.0" transform="rotate(-90 -13.5,21.0)" font-size=".6">Event</text>
+	<text x="-12.5" y="21.0" transform="rotate(-90 -12.5,21.0)" font-size=".6">Location</text>
+	<text x="-11.5" y="21.0" transform="rotate(-90 -11.5,21.0)" font-size=".6">Organisation</text>
+	<text x="-10.5" y="21.0" transform="rotate(-90 -10.5,21.0)" font-size=".6">Person</text>
+	<text x="-9.5" y="21.0" transform="rotate(-90 -9.5,21.0)" font-size=".6">Research_Topic</text>
+	<text x="-8.5" y="22.0" font-size=".6">City</text>
+	<text x="-8.5" y="23.0" font-size=".6">Contribution</text>
+	<text x="-8.5" y="24.0" font-size=".6">Country</text>
+	<text x="-8.5" y="25.0" font-size=".6">Event</text>
+	<text x="-8.5" y="26.0" font-size=".6">Organization</text>
+	<text x="-8.5" y="27.0" font-size=".6">Person</text>
+	<text x="-8.5" y="28.0" font-size=".6">Topic</text>
+	<circle cx="-16.0" cy="-22.0" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<circle cx="-16.0" cy="-27.5" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<rect x="1.1999998" y="21.5" width="6.0" height="7.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="-0.8000002" y="18.5" width="13.0" height="10.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="2.1999998" y="24.5" width="0.8" height="0.8"/>
+	<rect x="5.2" y="26.5" width="0.8" height="0.8"/>
+	<rect x="4.8666663" y="26.166666" width="-0.53333336" height="-0.53333336"/>
+	<rect x="1.8666666" y="23.166666" width="-0.53333336" height="-0.53333336"/>
+	<text x="7.7" y="20.5" font-size=".9">LogMapLite-2013</text>
+	<text x="1.6999998" y="21.0" transform="rotate(-90 1.6999998,21.0)" font-size=".6">Document</text>
+	<text x="2.6999998" y="21.0" transform="rotate(-90 2.6999998,21.0)" font-size=".6">Event</text>
+	<text x="3.6999998" y="21.0" transform="rotate(-90 3.6999998,21.0)" font-size=".6">Location</text>
+	<text x="4.7" y="21.0" transform="rotate(-90 4.7,21.0)" font-size=".6">Organisation</text>
+	<text x="5.7" y="21.0" transform="rotate(-90 5.7,21.0)" font-size=".6">Person</text>
+	<text x="6.7" y="21.0" transform="rotate(-90 6.7,21.0)" font-size=".6">Research_Topic</text>
+	<text x="7.7" y="22.0" font-size=".6">City</text>
+	<text x="7.7" y="23.0" font-size=".6">Contribution</text>
+	<text x="7.7" y="24.0" font-size=".6">Country</text>
+	<text x="7.7" y="25.0" font-size=".6">Event</text>
+	<text x="7.7" y="26.0" font-size=".6">Organization</text>
+	<text x="7.7" y="27.0" font-size=".6">Person</text>
+	<text x="7.7" y="28.0" font-size=".6">Topic</text>
+	<circle cx="0.19999981" cy="-22.0" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<circle cx="0.19999981" cy="-27.5" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<rect x="17.4" y="21.5" width="6.0" height="7.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="15.4" y="18.5" width="13.0" height="10.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="20.4" y="25.5" width="0.8" height="0.8"/>
+	<rect x="21.4" y="26.5" width="0.8" height="0.8"/>
+	<rect x="18.066666" y="23.166666" width="-0.53333336" height="-0.53333336"/>
+	<rect x="18.4" y="24.5" width="0.8" height="0.8"/>
+	<rect x="22.4" y="27.5" width="0.8" height="0.8"/>
+	<text x="23.9" y="20.5" font-size=".9">OAEI-RA-2016</text>
+	<text x="17.9" y="21.0" transform="rotate(-90 17.9,21.0)" font-size=".6">Document</text>
+	<text x="18.9" y="21.0" transform="rotate(-90 18.9,21.0)" font-size=".6">Event</text>
+	<text x="19.9" y="21.0" transform="rotate(-90 19.9,21.0)" font-size=".6">Location</text>
+	<text x="20.9" y="21.0" transform="rotate(-90 20.9,21.0)" font-size=".6">Organisation</text>
+	<text x="21.9" y="21.0" transform="rotate(-90 21.9,21.0)" font-size=".6">Person</text>
+	<text x="22.9" y="21.0" transform="rotate(-90 22.9,21.0)" font-size=".6">Research_Topic</text>
+	<text x="23.9" y="22.0" font-size=".6">City</text>
+	<text x="23.9" y="23.0" font-size=".6">Contribution</text>
+	<text x="23.9" y="24.0" font-size=".6">Country</text>
+	<text x="23.9" y="25.0" font-size=".6">Event</text>
+	<text x="23.9" y="26.0" font-size=".6">Organization</text>
+	<text x="23.9" y="27.0" font-size=".6">Person</text>
+	<text x="23.9" y="28.0" font-size=".6">Topic</text>
+	<circle cx="16.4" cy="-22.0" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<circle cx="16.4" cy="-27.5" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<rect x="33.6" y="21.5" width="6.0" height="7.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="31.599998" y="18.5" width="13.0" height="10.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="34.266666" y="23.166666" width="-0.53333336" height="-0.53333336"/>
+	<rect x="37.6" y="26.5" width="0.8" height="0.8"/>
+	<rect x="34.6" y="24.5" width="0.8" height="0.8"/>
+	<rect x="37.266666" y="26.166666" width="-0.53333336" height="-0.53333336"/>
+	<text x="40.1" y="20.5" font-size=".9">LogMapLite-2012</text>
+	<text x="34.1" y="21.0" transform="rotate(-90 34.1,21.0)" font-size=".6">Document</text>
+	<text x="35.1" y="21.0" transform="rotate(-90 35.1,21.0)" font-size=".6">Event</text>
+	<text x="36.1" y="21.0" transform="rotate(-90 36.1,21.0)" font-size=".6">Location</text>
+	<text x="37.1" y="21.0" transform="rotate(-90 37.1,21.0)" font-size=".6">Organisation</text>
+	<text x="38.1" y="21.0" transform="rotate(-90 38.1,21.0)" font-size=".6">Person</text>
+	<text x="39.1" y="21.0" transform="rotate(-90 39.1,21.0)" font-size=".6">Research_Topic</text>
+	<text x="40.1" y="22.0" font-size=".6">City</text>
+	<text x="40.1" y="23.0" font-size=".6">Contribution</text>
+	<text x="40.1" y="24.0" font-size=".6">Country</text>
+	<text x="40.1" y="25.0" font-size=".6">Event</text>
+	<text x="40.1" y="26.0" font-size=".6">Organization</text>
+	<text x="40.1" y="27.0" font-size=".6">Person</text>
+	<text x="40.1" y="28.0" font-size=".6">Topic</text>
+	<circle cx="32.6" cy="-22.0" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<circle cx="32.6" cy="-27.5" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<rect x="49.8" y="21.5" width="6.0" height="7.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="47.8" y="18.5" width="13.0" height="10.0" fill="none" style="stroke:rgb(0,0,0);stroke-width:0.2"/>
+	<rect x="52.94" y="25.64" width="0.52000004" height="0.52000004"/>
+	<rect x="53.899998" y="26.6" width="0.6000001" height="0.6000001"/>
+	<rect x="50.466667" y="23.166666" width="-0.53333336" height="-0.53333336"/>
+	<rect x="50.92" y="24.62" width="0.56" height="0.56"/>
+	<text x="56.3" y="20.5" font-size=".9">LogMapC-2015</text>
+	<text x="50.3" y="21.0" transform="rotate(-90 50.3,21.0)" font-size=".6">Document</text>
+	<text x="51.3" y="21.0" transform="rotate(-90 51.3,21.0)" font-size=".6">Event</text>
+	<text x="52.3" y="21.0" transform="rotate(-90 52.3,21.0)" font-size=".6">Location</text>
+	<text x="53.3" y="21.0" transform="rotate(-90 53.3,21.0)" font-size=".6">Organisation</text>
+	<text x="54.3" y="21.0" transform="rotate(-90 54.3,21.0)" font-size=".6">Person</text>
+	<text x="55.3" y="21.0" transform="rotate(-90 55.3,21.0)" font-size=".6">Research_Topic</text>
+	<text x="56.3" y="22.0" font-size=".6">City</text>
+	<text x="56.3" y="23.0" font-size=".6">Contribution</text>
+	<text x="56.3" y="24.0" font-size=".6">Country</text>
+	<text x="56.3" y="25.0" font-size=".6">Event</text>
+	<text x="56.3" y="26.0" font-size=".6">Organization</text>
+	<text x="56.3" y="27.0" font-size=".6">Person</text>
+	<text x="56.3" y="28.0" font-size=".6">Topic</text>
+	<circle cx="48.8" cy="-22.0" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/>	<circle cx="48.8" cy="-27.5" r="0.5" fill-opacity="0.0" style="stroke:rgb(0,0,0);stroke-width:0.1"/></svg>
