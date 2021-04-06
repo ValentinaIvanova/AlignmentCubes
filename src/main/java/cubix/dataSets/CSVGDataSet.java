@@ -44,6 +44,10 @@ import cubix.data.OntologyUtils;
 import cubix.data.TimeGraph;
 import cubix.data.TimeGraphUtils;
 import edu.uci.ics.jung.graph.Graph;
+import java.io.FileNotFoundException;
+import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class CSVGDataSet{
 
@@ -141,6 +145,62 @@ public class CSVGDataSet{
 		//File alignment = new File("C://Users//valiv11//Desktop//Eclipse//workspace//AlignmentsEvaluationCube//datasets//LogMap2011-2016-Conf.csv");
 		//File alignment = new File("C://Users//valiv11//Desktop//Eclipse//workspace//AlignmentsEvaluationCube//datasets//AML-LogMap2011-2016-Conf.csv");
 
+		// owlThing is level 0 
+		sourceVisibilityLevel = 1;
+		targetVisibilityLevel = 1;
+		
+		HashMap<String,ArrayList<HierarchicalCNode>> sourceVertices = loadOntology(sourceOnto, true);
+		Iterator<String> it = sourceVertices.keySet().iterator();
+		int sourceNodes = 0;
+		while (it.hasNext()){
+			String next = it.next();
+			sourceNodes += sourceVertices.get(next).size();
+			//if (sourceVertices.get(next).size() > 1){
+			//	System.out.println("MANY: " + next + "            size" + sourceVertices.get(next).size());
+			//}
+		}
+		System.out.println("sourceNodes \t " + sourceNodes);
+		
+		HashMap<String,ArrayList<HierarchicalCNode>> targetVertices = loadOntology(targetOnto, false);
+		Iterator<String> itt = targetVertices.keySet().iterator();
+		int targetNodes = 0;
+		while (itt.hasNext()){
+			String next = itt.next();
+			targetNodes += targetVertices.get(next).size();
+			//if (targetVertices.get(next).size() > 1){
+			//	System.out.println("MANY: " + next + "            size" + targetVertices.get(next).size());
+			//}
+		}
+		System.out.println("targetNodes \t " + targetNodes);
+		
+		//if (alignments.isFile()) {
+			loadAlignment(alignments, sourceVertices, targetVertices, alignGraph, onlyEquRelations);	
+		//} else if (alignments.isDirectory()) {
+			//loadAlignmentFromFolder(alignments, sourceVertices, targetVertices, alignGraph, onlyEquRelations);	
+			//loadAlignmentFromFolder(new File("C:\\Users\\valiv11\\Desktop\\Eclipse\\workspace\\Datasets\\ConferenceLogMapRA-Alignments\\Alignments"),
+					//sourceVertices, targetVertices, alignGraph);	
+		//}
+		
+		if (measures != null)
+			loadAlignmentsMeasures(measures);
+		CubixVis.WEIGHT_MAX = maxWeight;
+		CubixVis.WEIGHT_MIN = minWeight;
+		CubixVis.ACCUMULATED_WEIGHT_MAX = maxAccumulatedWeight;
+		CubixVis.ACCUMULATED_WEIGHT_MIN = minAccumulatedWeight;
+		return alignGraph;		
+	}
+        
+        /**
+	 * VI Load two ontologies (owl format) and their alignments (cubix csv format)
+	 **/
+	public static TimeGraph loadOntologiesAndAlignments(File sourceOnto, File targetOnto, List<File> alignments, File measures, boolean onlyEquRelations){
+		
+		maxWeight = -1;
+		minWeight = 100000;
+		maxAccumulatedWeight = -1;
+		minAccumulatedWeight = 100000;
+		TimeGraph<CNode, CEdge, CTime> alignGraph = new TimeGraph<CNode, CEdge, CTime>();
+		ontoUtils = new OntologyUtils();
 
 		// owlThing is level 0 
 		sourceVisibilityLevel = 1;
@@ -387,59 +447,101 @@ public class CSVGDataSet{
 		return result;
 	}
 
-	private static void loadAlignment(File alignmentsFile, HashMap<String,ArrayList<HierarchicalCNode>> sourceVertices, 
-			HashMap<String,ArrayList<HierarchicalCNode>> targetVertices, TimeGraph<CNode, CEdge, CTime> alignGraph, boolean onlyEquRelations){
+        private static void loadAlignment(File alignmentsFile, HashMap<String,ArrayList<HierarchicalCNode>> sourceVertices, 
+                HashMap<String,ArrayList<HierarchicalCNode>> targetVertices, TimeGraph<CNode, CEdge, CTime> alignGraph, boolean onlyEquRelations){
+                Iterator<String[]> iterator = null;
+                if (alignmentsFile.isFile()){
+                        CSVReader r = null;
+                    try {
+                        r = new CSVReader(new FileReader(alignmentsFile));
+                    } catch (FileNotFoundException ex) {
+                        System.err.println("Error loading file " + alignmentsFile);
+			ex.printStackTrace();
+                        return;
+                    }
+                        iterator = r.iterator();
+                        // skip the first line since it is a header
+                        iterator.next();
+                } else if (alignmentsFile.isDirectory()){
+                        iterator = loadAlignmentFromFolder(alignmentsFile, onlyEquRelations).iterator();
+                }
+                loadAlignment(iterator, sourceVertices, targetVertices,alignGraph, onlyEquRelations);
+            }
+        
+        private static void loadAlignment(List<File> listOfFiles, HashMap<String,ArrayList<HierarchicalCNode>> sourceVertices, 
+                HashMap<String,ArrayList<HierarchicalCNode>> targetVertices, TimeGraph<CNode, CEdge, CTime> alignGraph, boolean onlyEquRelations){
+            
+                ArrayList<String[]> result = new ArrayList<String[]>();
+                for(File f : listOfFiles){
+                    if (f.isFile()) {
+                        try {
+                            XMLReader parser = null;
+                            try {
+                                    parser = XMLReaderFactory.createXMLReader( );
+                            } catch (SAXException e) {
+                                    System.err.println("Couldn't locate a SAX parser");
+                            }
+
+                            int index = f.getName().lastIndexOf(".");
+                            String fileName = f.getName().substring(0, index);
+                            SAXAlignmentParser contentHandler = new SAXAlignmentParser(fileName, onlyEquRelations);
+                            parser.setContentHandler(contentHandler);
+
+                            parser.parse(f.getAbsolutePath());
+                            
+                            result.addAll(contentHandler.getContent());
+
+                        } catch (Exception e) {
+                                e.printStackTrace();
+                        }
+                    }
+                }
+                loadAlignment(result.iterator(), sourceVertices, targetVertices,alignGraph, onlyEquRelations);
+            }
+
+        private static void loadAlignment(Iterator<String[]> iterator, HashMap<String,ArrayList<HierarchicalCNode>> sourceVertices, 
+                HashMap<String,ArrayList<HierarchicalCNode>> targetVertices, TimeGraph<CNode, CEdge, CTime> alignGraph, boolean onlyEquRelations){
 
 
-		float weight = 0;
-		try {
-			Iterator<String[]> iterator = null;
-			String[] line;
-			if (alignmentsFile.isFile()){
-				CSVReader r = new CSVReader(new FileReader(alignmentsFile));
-				iterator = r.iterator();
-				// skip the first line since it is a header
-				line = iterator.next();
-			} else if (alignmentsFile.isDirectory()){
-				iterator = loadAlignmentFromFolder(alignmentsFile, onlyEquRelations).iterator();
-			}
-			
-			
-			int lineCount = 0;
-			CTime t = null;
-			String timelabel;
-			ArrayList<HierarchicalCNode> sources = new ArrayList<HierarchicalCNode>();  
-			ArrayList<HierarchicalCNode> targets = new ArrayList<HierarchicalCNode>();  
-			boolean found;
-			CEdge edge;
-			
+            float weight = 0;
+
+            String[] line;                        
+
+            int lineCount = 0;
+            CTime t = null;
+            String timelabel;
+            ArrayList<HierarchicalCNode> sources = new ArrayList<HierarchicalCNode>();  
+            ArrayList<HierarchicalCNode> targets = new ArrayList<HierarchicalCNode>();  
+            boolean found;
+            CEdge edge;
+
 //			HashMap<String,ArrayList<HierarchicalCNode>> swapVertices = new HashMap<>();
 //			boolean ontoOrderChecked = false;
-			
-			while (iterator.hasNext())
-			//while((line = r.readNext()) != null)
-			{
-				
-				line = iterator.next();
-				timelabel = line[0];
-				found = false;
-				
-				for(CTime ts : alignGraph.getTimes())
-				{
-					if(ts.getLabel().equals(timelabel))
-					{
-						found = true;
-						t = ts;
-						break;
-					}
-				}
-				
-				if(!found){
-					t = new CTime(System.currentTimeMillis());
-					t.setLabel(timelabel);
-					alignGraph.createSliceGraph(t);
-				}
-				
+
+                    while (iterator.hasNext())
+                    //while((line = r.readNext()) != null)
+                    {
+
+                            line = iterator.next();
+                            timelabel = line[0];
+                            found = false;
+
+                            for(CTime ts : alignGraph.getTimes())
+                            {
+                                    if(ts.getLabel().equals(timelabel))
+                                    {
+                                            found = true;
+                                            t = ts;
+                                            break;
+                                    }
+                            }
+
+                            if(!found){
+                                    t = new CTime(System.currentTimeMillis());
+                                    t.setLabel(timelabel);
+                                    alignGraph.createSliceGraph(t);
+                            }
+
 //				if (!ontoOrderChecked){
 //					
 //					if (!sourceVertices.containsKey(line[1]) && !targetVertices.containsKey(line[2])) {
@@ -450,186 +552,182 @@ public class CSVGDataSet{
 //					}
 //					ontoOrderChecked = true;
 //				}
-				
-				lineCount++;
-				sources.clear();
-				targets.clear();
 
-				if(sourceVertices.containsKey(line[1])) {
-					ArrayList<HierarchicalCNode> sourceNodes = sourceVertices.get(line[1]);
-					sources.addAll(sourceNodes);
-					for (int i = 0; i < sourceNodes.size(); i++) {
-						alignGraph.addVertex(sourceNodes.get(i), t);
-						alignGraph.setNodeLabel(sourceNodes.get(i), sourceNodes.get(i).getLabel());    	 
-					}
-				} else if (sourceVertices.containsKey(line[2])) {
-					ArrayList<HierarchicalCNode> sourceNodes = sourceVertices.get(line[2]);
-					sources.addAll(sourceNodes);
-					for (int i = 0; i < sourceNodes.size(); i++) {
-						alignGraph.addVertex(sourceNodes.get(i), t);
-						alignGraph.setNodeLabel(sourceNodes.get(i), sourceNodes.get(i).getLabel());    	 
-					}
-				}
+                            lineCount++;
+                            sources.clear();
+                            targets.clear();
 
-				if(targetVertices.containsKey(line[2])) {
-					ArrayList<HierarchicalCNode> targetNodes = targetVertices.get(line[2]);
-					targets.addAll(targetNodes);
-					for (int i = 0; i < targetNodes.size(); i++) {
-						alignGraph.addVertex(targetNodes.get(i), t);
-						alignGraph.setNodeLabel(targetNodes.get(i), targetNodes.get(i).getLabel());						
-					}
-				} else if(targetVertices.containsKey(line[1])) {
-					ArrayList<HierarchicalCNode> targetNodes = targetVertices.get(line[1]);
-					targets.addAll(targetNodes);
-					for (int i = 0; i < targetNodes.size(); i++) {
-						alignGraph.addVertex(targetNodes.get(i), t);
-						alignGraph.setNodeLabel(targetNodes.get(i), targetNodes.get(i).getLabel());						
-					}
-				}
+                            if(sourceVertices.containsKey(line[1])) {
+                                    ArrayList<HierarchicalCNode> sourceNodes = sourceVertices.get(line[1]);
+                                    sources.addAll(sourceNodes);
+                                    for (int i = 0; i < sourceNodes.size(); i++) {
+                                            alignGraph.addVertex(sourceNodes.get(i), t);
+                                            alignGraph.setNodeLabel(sourceNodes.get(i), sourceNodes.get(i).getLabel());    	 
+                                    }
+                            } else if (sourceVertices.containsKey(line[2])) {
+                                    ArrayList<HierarchicalCNode> sourceNodes = sourceVertices.get(line[2]);
+                                    sources.addAll(sourceNodes);
+                                    for (int i = 0; i < sourceNodes.size(); i++) {
+                                            alignGraph.addVertex(sourceNodes.get(i), t);
+                                            alignGraph.setNodeLabel(sourceNodes.get(i), sourceNodes.get(i).getLabel());    	 
+                                    }
+                            }
 
-				if (line[3] != null){
-					weight = Float.parseFloat(line[3]);
-				} else {
-					weight = 1.0f;
-				}
-				
+                            if(targetVertices.containsKey(line[2])) {
+                                    ArrayList<HierarchicalCNode> targetNodes = targetVertices.get(line[2]);
+                                    targets.addAll(targetNodes);
+                                    for (int i = 0; i < targetNodes.size(); i++) {
+                                            alignGraph.addVertex(targetNodes.get(i), t);
+                                            alignGraph.setNodeLabel(targetNodes.get(i), targetNodes.get(i).getLabel());						
+                                    }
+                            } else if(targetVertices.containsKey(line[1])) {
+                                    ArrayList<HierarchicalCNode> targetNodes = targetVertices.get(line[1]);
+                                    targets.addAll(targetNodes);
+                                    for (int i = 0; i < targetNodes.size(); i++) {
+                                            alignGraph.addVertex(targetNodes.get(i), t);
+                                            alignGraph.setNodeLabel(targetNodes.get(i), targetNodes.get(i).getLabel());						
+                                    }
+                            }
 
-				// TODO VI for now assume only equivalence relations, in the future implement subsumption as well
-				for (int i = 0; i < sources.size(); i++) {
-					for (int j = 0; j < targets.size(); j++) {
-						edge = new CEdge(sources.get(i).getID() + "--" + targets.get(j).getID());
-						//System.out.println("[CSVGDataSet] edge: " + sources.get(i).getID() + "--" + targets.get(j).getID());
-						edge.setWeight(weight);
-						alignGraph.addEdge(edge, sources.get(i), targets.get(j), t, false);
-						sources.get(i).addMappingEdge(edge, t);
-						targets.get(j).addMappingEdge(edge, t);
-					}
-				}
-
-				//edge = new CEdge(target.getID() + "--" + source.getID()); //do not need to do it for the vis 
-				//edge.setWeight(weight);
-				//alignGraph.addEdge(edge, target, source, t, true);
-				maxWeight = Math.max(weight, maxWeight);
-				minWeight = Math.min(weight, minWeight);
-			}
-
-			CubixVis.MAPPINGS_COUNT = lineCount;
-			
-			/**
-			 * Adds the nodes not in the alignment to the respective time/alignment matrices.
-			 * For the visible nodes calculates the number of mappings in which their children nodes participate.
-			 * This number is then assigned to another weight variable in the CEdge class.
-			 */
-			Set<String> sourceIt;
-			Set<String> targetIt;
-			ArrayList<HierarchicalCNode> sourceNodes;
-			ArrayList<HierarchicalCNode> targetNodes;
-			ArrayList<HierarchicalCNode> tempSourceNodes;
-			ArrayList<HierarchicalCNode> tempTargetNodes;
-			ArrayList<CTime> times = alignGraph.getTimes();
-			for (int i = 0; i < times.size(); i++) {
-				tempSourceNodes = new ArrayList<HierarchicalCNode>();
-				tempTargetNodes = new ArrayList<HierarchicalCNode>();
-
-				sourceIt = sourceVertices.keySet();
-				Iterator<String> sourceNodesIriIterator = sourceIt.iterator();
-				while(sourceNodesIriIterator.hasNext()){
-					String nextIri = sourceNodesIriIterator.next();
-					sourceNodes = sourceVertices.get(nextIri);
-					for (int j = 0; j < sourceNodes.size(); j++) {
-						HierarchicalCNode node = sourceNodes.get(j);
-						if (!alignGraph.hasVertex(node)){
-							alignGraph.addVertex(node, times.get(i));
-							alignGraph.setNodeLabel(node, ((HierarchicalCNode) node).getLabel());    
-						}
-						//if (node.getNodeDepth() <= sourceVisibilityLevel){
-							tempSourceNodes.add(node);
-						//}
-					}
-				}
-				targetIt = targetVertices.keySet();
-				Iterator<String> targetNodesIriIterator = targetIt.iterator();
-				while (targetNodesIriIterator.hasNext()) {
-					String nextIri = targetNodesIriIterator.next();
-					targetNodes = targetVertices.get(nextIri);
-					for (int j = 0; j < targetNodes.size(); j++) {
-						HierarchicalCNode node = targetNodes.get(j);
-						if (!alignGraph.hasVertex(node)) {
-							alignGraph.addVertex(node, times.get(i));
-							alignGraph.setNodeLabel(node, ((HierarchicalCNode) node).getLabel());   
-						}
-						//if (node.getNodeDepth() <= targetVisibilityLevel){
-							tempTargetNodes.add(node);
-						//}
-					}
-				}
-				
-				//System.out.println("TIME *******************" + times.get(i));
-				for (int v = 0; v < firstLevelVerticies.size(); v++) {
-					
-					getAllEdgesForNode(firstLevelVerticies.get(v), times.get(i));
-				}
-				
-				//System.out.println(tempSourceNodes.size());
-				//System.out.println(tempTargetNodes.size());
-
-				Iterator<HierarchicalCNode> accMappsIterator = accumulatedMappsPerNodeMap.keySet().iterator();
-				while (accMappsIterator.hasNext()) {
-					HierarchicalCNode n = (HierarchicalCNode) accMappsIterator.next();
-					if (accumulatedMappsPerNodeMap.get(n).isEmpty()) {
-						if (n.belongsToSourceOnto()) {
-							tempSourceNodes.remove(n);
-						} else {
-							tempTargetNodes.remove(n);
-						}
-					}
-				}
-				
-				System.out.println("[CSVGDataSet] calculate accumulated edge weights");
-				//System.out.println(tempSourceNodes.size());
-				//System.out.println(tempTargetNodes.size());
-				
-				for (int j = 0; j < tempSourceNodes.size(); j++) {
-					HierarchicalCNode tempSourceNode = tempSourceNodes.get(j);
-					Set<CEdge> sourceSet = accumulatedMappsPerNodeMap.get(tempSourceNode);
-					for (int k = 0; k < tempTargetNodes.size(); k++) {
-						
-						HierarchicalCNode tempTargetNode = tempTargetNodes.get(k);
-						
-						Set<CEdge> targetSet = accumulatedMappsPerNodeMap.get(tempTargetNode);
-						Set<CEdge> intersection = new HashSet<>();
-						
-						intersection.addAll(sourceSet);
-						intersection.retainAll(targetSet);
-						
-						int accumulatedWeight = intersection.size();
-						
-						if (accumulatedWeight != 0) {
-							maxAccumulatedWeight = Math.max(accumulatedWeight, maxAccumulatedWeight);
-							minAccumulatedWeight = Math.min(accumulatedWeight, minAccumulatedWeight);
-							CEdge existingEdge = alignGraph.getEdge(times.get(i), tempSourceNode, tempTargetNode);
-							if (existingEdge != null) {
-								existingEdge.setAccumulatedWeight(accumulatedWeight);
-							} else {
-								CEdge accumulatedEdge = new CEdge(tempSourceNode.getID() + "--" + tempTargetNode.getID());
-								accumulatedEdge.setAccumulatedWeight(accumulatedWeight);
-								accumulatedEdge.setWeight(0);
-								alignGraph.addEdge(accumulatedEdge, tempSourceNode, tempTargetNode, times.get(i), false);
-							}
-							
-							
-							//System.out.println("[CSVGDataSet] accumulatedWeight: " + accumulatedWeight + " for: " + visibleSourceNode.getLabel() + " and " + visibleTargetNode.getLabel());
-
-						}
-					}
-				}				
-			}
+                            if (line[3] != null){
+                                    weight = Float.parseFloat(line[3]);
+                            } else {
+                                    weight = 1.0f;
+                            }
 
 
-		}catch (IOException ex){
-			System.err.println("Error loading file " + alignmentsFile);
-			ex.printStackTrace();
-		} 
+                            // TODO VI for now assume only equivalence relations, in the future implement subsumption as well
+                            for (int i = 0; i < sources.size(); i++) {
+                                    for (int j = 0; j < targets.size(); j++) {
+                                            edge = new CEdge(sources.get(i).getID() + "--" + targets.get(j).getID());
+                                            //System.out.println("[CSVGDataSet] edge: " + sources.get(i).getID() + "--" + targets.get(j).getID());
+                                            edge.setWeight(weight);
+                                            alignGraph.addEdge(edge, sources.get(i), targets.get(j), t, false);
+                                            sources.get(i).addMappingEdge(edge, t);
+                                            targets.get(j).addMappingEdge(edge, t);
+                                    }
+                            }
+
+                            //edge = new CEdge(target.getID() + "--" + source.getID()); //do not need to do it for the vis 
+                            //edge.setWeight(weight);
+                            //alignGraph.addEdge(edge, target, source, t, true);
+                            maxWeight = Math.max(weight, maxWeight);
+                            minWeight = Math.min(weight, minWeight);
+                    }
+
+                    CubixVis.MAPPINGS_COUNT = lineCount;
+
+                    /**
+                     * Adds the nodes not in the alignment to the respective time/alignment matrices.
+                     * For the visible nodes calculates the number of mappings in which their children nodes participate.
+                     * This number is then assigned to another weight variable in the CEdge class.
+                     */
+                    Set<String> sourceIt;
+                    Set<String> targetIt;
+                    ArrayList<HierarchicalCNode> sourceNodes;
+                    ArrayList<HierarchicalCNode> targetNodes;
+                    ArrayList<HierarchicalCNode> tempSourceNodes;
+                    ArrayList<HierarchicalCNode> tempTargetNodes;
+                    ArrayList<CTime> times = alignGraph.getTimes();
+                    for (int i = 0; i < times.size(); i++) {
+                            tempSourceNodes = new ArrayList<HierarchicalCNode>();
+                            tempTargetNodes = new ArrayList<HierarchicalCNode>();
+
+                            sourceIt = sourceVertices.keySet();
+                            Iterator<String> sourceNodesIriIterator = sourceIt.iterator();
+                            while(sourceNodesIriIterator.hasNext()){
+                                    String nextIri = sourceNodesIriIterator.next();
+                                    sourceNodes = sourceVertices.get(nextIri);
+                                    for (int j = 0; j < sourceNodes.size(); j++) {
+                                            HierarchicalCNode node = sourceNodes.get(j);
+                                            if (!alignGraph.hasVertex(node)){
+                                                    alignGraph.addVertex(node, times.get(i));
+                                                    alignGraph.setNodeLabel(node, ((HierarchicalCNode) node).getLabel());    
+                                            }
+                                            //if (node.getNodeDepth() <= sourceVisibilityLevel){
+                                                    tempSourceNodes.add(node);
+                                            //}
+                                    }
+                            }
+                            targetIt = targetVertices.keySet();
+                            Iterator<String> targetNodesIriIterator = targetIt.iterator();
+                            while (targetNodesIriIterator.hasNext()) {
+                                    String nextIri = targetNodesIriIterator.next();
+                                    targetNodes = targetVertices.get(nextIri);
+                                    for (int j = 0; j < targetNodes.size(); j++) {
+                                            HierarchicalCNode node = targetNodes.get(j);
+                                            if (!alignGraph.hasVertex(node)) {
+                                                    alignGraph.addVertex(node, times.get(i));
+                                                    alignGraph.setNodeLabel(node, ((HierarchicalCNode) node).getLabel());   
+                                            }
+                                            //if (node.getNodeDepth() <= targetVisibilityLevel){
+                                                    tempTargetNodes.add(node);
+                                            //}
+                                    }
+                            }
+
+                            //System.out.println("TIME *******************" + times.get(i));
+                            for (int v = 0; v < firstLevelVerticies.size(); v++) {
+
+                                    getAllEdgesForNode(firstLevelVerticies.get(v), times.get(i));
+                            }
+
+                            //System.out.println(tempSourceNodes.size());
+                            //System.out.println(tempTargetNodes.size());
+
+                            Iterator<HierarchicalCNode> accMappsIterator = accumulatedMappsPerNodeMap.keySet().iterator();
+                            while (accMappsIterator.hasNext()) {
+                                    HierarchicalCNode n = (HierarchicalCNode) accMappsIterator.next();
+                                    if (accumulatedMappsPerNodeMap.get(n).isEmpty()) {
+                                            if (n.belongsToSourceOnto()) {
+                                                    tempSourceNodes.remove(n);
+                                            } else {
+                                                    tempTargetNodes.remove(n);
+                                            }
+                                    }
+                            }
+
+                            System.out.println("[CSVGDataSet] calculate accumulated edge weights");
+                            //System.out.println(tempSourceNodes.size());
+                            //System.out.println(tempTargetNodes.size());
+
+                            for (int j = 0; j < tempSourceNodes.size(); j++) {
+                                    HierarchicalCNode tempSourceNode = tempSourceNodes.get(j);
+                                    Set<CEdge> sourceSet = accumulatedMappsPerNodeMap.get(tempSourceNode);
+                                    for (int k = 0; k < tempTargetNodes.size(); k++) {
+
+                                            HierarchicalCNode tempTargetNode = tempTargetNodes.get(k);
+
+                                            Set<CEdge> targetSet = accumulatedMappsPerNodeMap.get(tempTargetNode);
+                                            Set<CEdge> intersection = new HashSet<>();
+
+                                            intersection.addAll(sourceSet);
+                                            intersection.retainAll(targetSet);
+
+                                            int accumulatedWeight = intersection.size();
+
+                                            if (accumulatedWeight != 0) {
+                                                    maxAccumulatedWeight = Math.max(accumulatedWeight, maxAccumulatedWeight);
+                                                    minAccumulatedWeight = Math.min(accumulatedWeight, minAccumulatedWeight);
+                                                    CEdge existingEdge = alignGraph.getEdge(times.get(i), tempSourceNode, tempTargetNode);
+                                                    if (existingEdge != null) {
+                                                            existingEdge.setAccumulatedWeight(accumulatedWeight);
+                                                    } else {
+                                                            CEdge accumulatedEdge = new CEdge(tempSourceNode.getID() + "--" + tempTargetNode.getID());
+                                                            accumulatedEdge.setAccumulatedWeight(accumulatedWeight);
+                                                            accumulatedEdge.setWeight(0);
+                                                            alignGraph.addEdge(accumulatedEdge, tempSourceNode, tempTargetNode, times.get(i), false);
+                                                    }
+
+
+                                                    //System.out.println("[CSVGDataSet] accumulatedWeight: " + accumulatedWeight + " for: " + visibleSourceNode.getLabel() + " and " + visibleTargetNode.getLabel());
+
+                                            }
+                                    }
+                            }				
+                    }
+
+
 	}
 	
 //	private static int calculateAccumulatedWeight(HierarchicalCNode visibleSourceNode,
